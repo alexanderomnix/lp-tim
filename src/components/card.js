@@ -10,7 +10,10 @@ import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import AppsBanner from "../assets/Apps.svg";
+import WhatsappIco from "../assets/socialApps/app_whatsapp.svg";
+import MessengerIco from "../assets/socialApps/app_messenger.svg";
+import TelegramIco from "../assets/socialApps/app_telegram.svg";
+import WazeIco from "../assets/socialApps/app_waze.svg";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -40,7 +43,6 @@ const useStyles = makeStyles(theme => ({
     fontWeight: "bold"
   },
   appbanner: {
-    backgroundImage: `url(${AppsBanner})`,
     height: "47px",
     width: "auto"
   }
