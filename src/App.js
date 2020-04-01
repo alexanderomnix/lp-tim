@@ -1,12 +1,53 @@
 import React from "react";
-import NavBar from "./components/navbar";
-import Layout from "./components/layout";
+import SignInScreen from "./components/SignInScreen";
+import { ThemeProvider } from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core/styles";
+import NavBar from "./components/NavBar";
+import MainScreen from "./components/MainScreen";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#004691"
+    },
+    secondary: {
+      main: "#01508C"
+    },
+    tertiary: {
+      main: "#fff"
+    }
+  },
+  status: {
+    danger: "orange"
+  },
+  typography: {
+    fontFamily: "TIM Sans"
+  },
+  overrides: {
+    MuiCssBaseline: {
+      "@global": {
+        "@font-face": "TIM Sans"
+      }
+    }
+  }
+});
 function App() {
   return (
     <>
-      <NavBar />
-      <Layout />
+      <ThemeProvider theme={theme}>
+        <NavBar />
+        <Router>
+          <Switch>
+            <Route exact={true} path="/">
+              <SignInScreen />
+            </Route>
+            <Route exact={true} path="/plano4gbsmart">
+              <MainScreen />
+            </Route>
+          </Switch>
+        </Router>
+      </ThemeProvider>
     </>
   );
 }

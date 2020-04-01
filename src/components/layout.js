@@ -7,11 +7,10 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
-import Persona from "../assets/persona-banner-5-fs@2x.png";
+import BannerLogin from "../assets/bannerlogin.png";
+// import Hidden from "@material-ui/core/Hidden";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import Hidden from "@material-ui/core/Hidden";
 import SearchIcon from "@material-ui/icons/Search";
-// import InputMask from "react-input-mask";
 
 const theme = createMuiTheme({
   palette: {
@@ -30,17 +29,26 @@ const theme = createMuiTheme({
   },
   status: {
     danger: "orange"
+  },
+  typography: {
+    fontFamily: "TIM Sans"
+  },
+  overrides: {
+    MuiCssBaseline: {
+      "@global": {
+        "@font-face": "TIM Sans"
+      }
+    }
   }
 });
 
 const useStyles = makeStyles(theme => ({
   root: {
-    background:
-      "linear-gradient(180deg, #016FE9 0%, #0161CB 51%, #0050A7 100%) 0% 0% no-repeat padding-box",
+    background: "linear-gradient(90deg,#1f617f,#1f607e)!important",
     backgroundAttachment: "fixed",
     backgroundSize: "cover",
     backgroundPosition: "center center",
-    height: "100vh",
+    height: "100%",
     width: "100%"
   },
   paper: {
@@ -57,29 +65,26 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(3, 0, 2)
   },
   banner: {
-    position: "absolute",
-    bottom: 0,
-    right: "30px",
-    height: "598px"
+    top: "147px",
+    left: "632px",
+    width: "247px",
+    height: "293px",
+    background: `transparent url(${BannerLogin}) 0% 0% no-repeat padding-box`
   },
-  MainText: {
+  Title: {
     marginTop: 120,
-    color: "#fff"
-    // width: "50%"
+    marginBottom: 12,
+    color: "#00FF41!important",
+    width: "80%"
   },
   input: {
     color: "white",
     fontSize: "20px"
-    // width: 400
+  },
+  Subtitle: {
+    color: "#fff"
   }
 }));
-
-// const celMask = cel => {
-//   cel = cel.replace(/D/g, "").replace(/^(d{2})(d)/g, "($1) $2").replace(/(d)(d{4})$/, "$1-$2")
-//   cel = cel.replace(/^(d{2})(d)/g, "($1) $2")
-//   cel = cel.replace(/(d)(d{4})$/, "$1-$2")
-//   return cel;
-// };
 
 export default function SignInLp() {
   const classes = useStyles();
@@ -88,72 +93,57 @@ export default function SignInLp() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Grid
-        container
-        component="main"
-        className={classes.root}
-        direction="row"
-        alignItems="center"
-      >
-        <div className={classes.paper}>
-          <Grid item xs={12} sm={8} elevation={6} square>
-            <Typography
-              component="h1"
-              variant="h4"
-              className={classes.MainText}
-            >
-              Esclareça todas as dúvidas sobre o seu novo plano, mas para isso,{" "}
-              <strong>insira abaixo seu novo número TIM.</strong>
-            </Typography>
-          </Grid>
-          <Grid item lg={2} md={4} xs={12} className={classes.paper}>
-            <form className={classes.form} noValidate>
-              <TextField
-                variant="outlined"
-                margin="normal"
-                fullWidth
-                required={true}
-                autoFocus
-                maxLength="14"
-                InputProps={{
-                  className: classes.input,
-                  endAdornment: (
-                    <InputAdornment position="start">
-                      <SearchIcon />
-                    </InputAdornment>
-                  )
-                }}
-                value={input}
-                onChange={e =>
-                  setinput(
-                    e.target.value
-                      .replace(/D/g, "")
-                      .replace(/^(d{2})(d)/g, "($1) $2")
-                      .replace(/(d)(d{4})$/, "$1-$2")
-                  )
-                }
-              />
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                size="large"
-                className={classes.submit}
-                style={{ fontSize: "15px" }}
+      <div className={classes.root}>
+        <Grid container component="main" direction="row" alignItems="center">
+          <div className={classes.paper}>
+            <Grid item xs={12} sm={8} elevation={6}>
+              <Typography component="h1" variant="h4" className={classes.Title}>
+                <strong>TIM Controle</strong>
+              </Typography>
+              <Typography
+                component="h1"
+                variant="h4"
+                className={classes.Subtitle}
               >
-                Consultar agora
-              </Button>
-            </form>
-          </Grid>
-          <Hidden smDown>
-            <img
-              className={classes.banner}
-              src={Persona}
-              alt="Moça em selfie"
-            ></img>
-          </Hidden>
-        </div>
-      </Grid>
+                Esclareça todas as dúvidas sobre o seu novo plano, mas para
+                isso, <strong>insira abaixo seu novo número TIM.</strong>
+              </Typography>
+            </Grid>
+            <Grid item lg={2} md={4} xs={12} className={classes.paper}>
+              <form className={classes.form} noValidate>
+                <TextField
+                  margin="normal"
+                  fullWidth
+                  required={true}
+                  autoFocus
+                  maxLength="14"
+                  InputProps={{
+                    className: classes.input,
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <SearchIcon />
+                      </InputAdornment>
+                    )
+                  }}
+                  value={input}
+                  onChange={e => setinput(e.target.value)}
+                />
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  className={classes.submit}
+                  style={{ fontSize: "15px" }}
+                >
+                  Consultar agora
+                </Button>
+              </form>
+              <div className={classes.banner}></div>
+            </Grid>
+          </div>
+        </Grid>
+      </div>
     </ThemeProvider>
   );
 }
