@@ -4,13 +4,18 @@ import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import AppsRow from "../assets/socialApps/Appsrow.svg";
 import Apps_gratis from "../assets/socialApps/Apps_gratis_3meses.png";
-import CloudIco from "../assets/Group_964.svg";
+import ConversationIco from "../assets/Group_964.svg";
+
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundImage: "linear-gradient(194deg,#016fe9,#0050a7)",
     alignItems: "center",
     padding: "42px 0",
-    borderRadius: "8px"
+    borderRadius: "8px",
+    top: "360px",
+    left: "798px",
+    width: "289px",
+    height: "371px"
   },
   cardtitle: {
     marginTop: 30,
@@ -27,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   cardsubtitle: {
     textAlign: "center",
     color: "#fff",
-    fontWeight: "bold"
+    letterSpacing: "-0.38px"
   },
   greenspan: {
     color: "#00ff41",
@@ -62,31 +67,20 @@ const CardPlano = () => {
   return (
     <Card className={classes.root}>
       <div className={classes.appsrow}>
-        <img src={CloudIco} alt="Nuvem com simbolo de mais"></img>
+        <img src={ConversationIco} alt="Nuvem com simbolo de mais"></img>
       </div>
       <Typography className={classes.cardsubtitle}>
-        Apps sem descontar <br /> da internet
+        <strong>ligações ilimitadas</strong> <br />
+        para qualquer operadora
+        <br /> do Brasil c/ DDD TIM 41
       </Typography>
-      <div className={classes.appsrow}>
-        <img
-          src={AppsRow}
-          alt="Ícone do aplicativo WhatsApp, messenger, Telegram e Waze"
-          title="WhatsApp"
-        />
-        &nbsp;
-      </div>
       <Typography className={classes.cardsubtitle}>
         <span className={classes.greenspan}>+</span>
       </Typography>{" "}
-      <div className={classes.appsrow}>
-        <img
-          src={Apps_gratis}
-          alt="Ícone do aplicativo Telegram, Facebook e Twitter"
-          title="WhatsApp"
-        />
-      </div>
-      <Typography paragraph className={classes.cardparagraph}>
-        Grátis por 3 meses
+      <Typography paragraph className={classes.cardsubtitle}>
+        <strong>SMS ilimitado </strong> <br />
+        para TIM+ 100 para <br />
+        outras operadoras
       </Typography>
     </Card>
   );

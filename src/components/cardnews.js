@@ -7,8 +7,6 @@ import Button from "@material-ui/core/Button";
 import TextInfoContent from "./TextInfoContent";
 import { useN01TextInfoContentStyles } from "@mui-treasury/styles/textInfoContent/n01";
 import { useBouncyShadowStyles } from "@mui-treasury/styles/shadow/bouncy";
-import imageLogoCard from "../assets/socialApps/socialapps.png";
-import Avatar from "@material-ui/core/Avatar";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -35,28 +33,32 @@ const useStyles = makeStyles(() => ({
   },
   marginAutoItem: {},
   alignItemsAndJustifyContent: {
+    width: "114px",
+    height: "100px",
     alignItems: "center",
     justifyContent: "center",
-    margin: "0 15px!important"
+    margin: "0 auto!important"
+  },
+  overline: {
+    textAlign: "center",
+    color: "#fff"
   }
 }));
 
 const NewsCard = props => {
+  const { logo, title } = props;
   const styles = useStyles();
   const textCardContentStyles = useN01TextInfoContentStyles();
   const shadowStyles = useBouncyShadowStyles();
 
   return (
     <Card className={cx(styles.root, shadowStyles.root)}>
-      <CardHeader
-        avatar={
-          <div className={styles.alignItemsAndJustifyContent}>
-            <img src={imageLogoCard} alt="redes sociais" />
-          </div>
-        }
-      />
+      <div className={styles.alignItemsAndJustifyContent}>
+        <img src={logo} alt="redes sociais" />
+      </div>
+
       <CardContent className={styles.content}>
-        <TextInfoContent classes={textCardContentStyles} body="Teste" />
+        <TextInfoContent classes={textCardContentStyles} overline={title} />
         <Button variant="raised" className={styles.cta}>
           Contratar agora
         </Button>

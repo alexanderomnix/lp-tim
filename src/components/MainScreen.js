@@ -10,6 +10,8 @@ import ExpansionDrop from "./expansionDrop";
 import CardModel from "./card";
 import CardNews from "./cardnews";
 import CardLigacoes from "./cardsligacoes.js";
+import DeezerIco from "../assets/Deezer.png";
+import imageLogoCard from "../assets/socialApps/socialapps.png";
 
 const useStyles = makeStyles(theme => ({
   InfoContainer: { backgroundColor: "#E0E7F2" },
@@ -92,7 +94,7 @@ export default function Pricing() {
             color="secondary"
             className={classes.headertext}
           >
-            <strong>Ofertas</strong> Para o seu plano tim Controle
+            <strong>Ofertas</strong> Para o seu plano TIM Controle
           </Typography>
           <Container maxWidth="md" component="main">
             <Grid
@@ -104,13 +106,16 @@ export default function Pricing() {
               className={classes.cardContainer}
             >
               <Grid item key={1} xs={12} sm={12} md={4}>
-                <CardNews />
+                <CardNews
+                  logo={imageLogoCard}
+                  title="Redes sociais Recorrente"
+                />
               </Grid>
               <Grid item key={2} xs={12} sm={12} md={4}>
-                <CardNews />
+                <CardNews logo={imageLogoCard} title="Redes Sociais Avulso" />
               </Grid>
               <Grid item key={1} xs={12} sm={12} md={4}>
-                <CardNews />
+                <CardNews logo={DeezerIco} title="TIM Music by Deezer" />
               </Grid>
             </Grid>
           </Container>

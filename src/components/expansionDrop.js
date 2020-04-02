@@ -10,12 +10,17 @@ import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import GigaIco from "../assets/até 9GB.svg";
 
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundImage: "linear-gradient(194deg,#016fe9,#0050a7)",
     overflow: "initial",
-    borderRadius: "8px"
+    borderRadius: "8px",
+    top: "360px",
+    left: "798px",
+    width: "289px",
+    height: "371px"
   },
   expand: {
     transform: "rotate(0deg)",
@@ -31,14 +36,17 @@ const useStyles = makeStyles(theme => ({
   cardtitle: {
     color: "#00FF41",
     fontWeight: "700",
-    textAlign: "Center",
-    fontSize: "50px"
+    textAlign: "center",
+    fontSize: "81px",
+    letterSpacing: "-1.62px",
+    margin: "0!important"
   },
   spantitle: {
     fontSize: "17px",
     marginRight: "13px",
     verticalAlign: "middle",
-    letterSpacing: "0.5px"
+    letterSpacing: "0.5px",
+    fontWeight: "bold"
   },
   cardsubtitle: {
     textAlign: "center",
@@ -47,8 +55,9 @@ const useStyles = makeStyles(theme => ({
   },
   cardparagraph: {
     textAlign: "center",
-    color: "#fff",
-    fontSize: "15px"
+    color: "#CBECFD",
+    fontSize: "15px",
+    letterSpacing: "-0.3px"
   },
   greenspan: {
     color: "#00ff41",
@@ -58,10 +67,10 @@ const useStyles = makeStyles(theme => ({
     fontSize: "17px",
     fontWeight: "bold",
     color: "#fff",
-    display: "fixed"
+    textAlign: "center"
   },
   actions: {
-    display: "fixed"
+    textAlign: "center"
   },
   expandbar: {
     marginLeft: "auto"
@@ -75,14 +84,17 @@ const useStyles = makeStyles(theme => ({
     fontWeight: "700",
     borderRadius: "8px",
     textAlign: "center",
-    opacity: 1,
+    fontSize: "16px",
     padding: "8px 8px 8px",
     width: "157px",
-    height: "38px"
+    height: "38px",
+    display: "flex",
+    flexFlow: "row",
+    alignItems: "center",
+    justifyContent: "center"
   },
   appsrow: {
     display: "flex",
-    flexFlow: "row",
     alignItems: "center",
     justifyContent: "center"
   }
@@ -100,18 +112,17 @@ export default function RecipeReviewCard() {
     <>
       <Card className={classes.root} elevation={0}>
         <div className={classes.appsrow}>
-          <div className={classes.rectangle}>#MinhaOferta</div>
+          <div className={classes.rectangle}>#MINHAOFERTA</div>
         </div>
+
         <p className={classes.cardtitle}>
           <span className={classes.spantitle}>até</span>
           <strong>9GB</strong>
         </p>
+
         <Typography className={classes.cardsubtitle}>
           4GB <span className={classes.greenspan}>+</span> Até 5GB de bônus
         </Typography>
-        <CardContent>
-          <Typography variant="body2" color="textSecondary"></Typography>
-        </CardContent>
         <CardActions className={classes.actions}>
           <Typography
             className={classes.collapsebar}

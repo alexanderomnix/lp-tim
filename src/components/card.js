@@ -10,7 +10,11 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: "linear-gradient(194deg,#016fe9,#0050a7)",
     alignItems: "center",
     padding: "42px 0",
-    borderRadius: "8px"
+    borderRadius: "8px",
+    top: "360px",
+    left: "798px",
+    width: "289px",
+    height: "371px"
   },
   cardtitle: {
     marginTop: 30,
