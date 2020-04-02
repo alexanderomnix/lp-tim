@@ -67,7 +67,7 @@ const CardPlano = () => {
         <img src={ConversationIco} alt="Nuvem com simbolo de mais"></img>
       </div>
       <Typography className={classes.cardsubtitle}>
-        <strong>ligações ilimitadas</strong> <br />
+        <strong>Ligações ilimitadas</strong> <br />
         para qualquer operadora
         <br /> do Brasil c/ DDD TIM 41
       </Typography>

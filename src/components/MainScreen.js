@@ -16,6 +16,9 @@ import FaqComponent from "./faq";
 import APPMeuTim from "../assets/APPMeuTim.svg";
 import AppStoreIco from "../assets/appstore.png";
 import PlayStoreIco from "../assets/playstore.png";
+import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
+import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
+import Fab from "@material-ui/core/Fab";
 
 const useStyles = makeStyles(theme => ({
   InfoContainer: { backgroundColor: "#E0E7F2" },
@@ -66,6 +69,7 @@ const GAAction = (ctg, act) => {
 
 export default function Pricing() {
   const classes = useStyles();
+  const [feedbackButton, setFeedbackButton] = React.useState(false);
 
   return (
     <>
@@ -113,7 +117,7 @@ export default function Pricing() {
             color="secondary"
             className={classes.headertext}
           >
-            <strong>Ofertas</strong> Para o seu plano TIM Controle
+            <strong>Ofertas</strong> para o seu plano TIM Controle
           </Typography>
           <Container maxWidth="md" component="main">
             <Grid
@@ -203,6 +207,54 @@ export default function Pricing() {
               />
             </Grid>
           </Grid>
+          <Grid
+            container
+            className={classes.footerrow}
+            direction="row"
+            justify="center"
+            alignItems="center"
+            spacing={1}
+          >
+            <Typography>Este guia é útil?</Typography>
+            <Grid item>
+              <Fab
+                color="primary"
+                onClick={() => setFeedbackButton(true)}
+                disabled={feedbackButton}
+                aria-label="Deslike"
+              >
+                <ThumbUpAltIcon
+                  alt="Like"
+                  onClick={() => {
+                    GAAction("Guia", "Like");
+                  }}
+                />
+              </Fab>
+            </Grid>
+            <Grid item>
+              <Fab
+                color="primary"
+                onClick={() => setFeedbackButton(true)}
+                disabled={feedbackButton}
+                on
+                aria-label="Deslike"
+              >
+                <ThumbDownAltIcon
+                  onClick={() => {
+                    GAAction("Guia", "Deslike");
+                  }}
+                  alt="Deslike"
+                />
+              </Fab>
+            </Grid>
+          </Grid>
+          {!feedbackButton ? (
+            ""
+          ) : (
+            <Typography align="center">
+              Obrigado por participar de nossa pesquisa!
+            </Typography>
+          )}
         </Box>
       </Container>
     </>

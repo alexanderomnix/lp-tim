@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
     color: "#00FF41",
     fontWeight: "700",
     textAlign: "center",
-    fontSize: "81px",
+    fontSize: "58px",
     letterSpacing: "-1.62px",
     margin: "0!important"
   },
@@ -96,6 +96,10 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center"
+  },
+  disclaimer: {
+    fontSize: "14px",
+    fontWeight: "300"
   }
 }));
 
@@ -116,11 +120,16 @@ export default function RecipeReviewCard() {
 
         <p className={classes.cardtitle}>
           <span className={classes.spantitle}>até</span>
-          <strong>9GB</strong>
+          <strong>5.5GB</strong>
         </p>
 
         <Typography className={classes.cardsubtitle}>
-          4GB <span className={classes.greenspan}>+</span> Até 5GB de bônus
+          4GB <span className={classes.greenspan}>+</span> Até 1.5GB de bônus
+          <br />{" "}
+          <span className={classes.disclaimer}>
+            *contratando débito automático
+            <br /> e conta online
+          </span>
         </Typography>
         <CardActions className={classes.actions}>
           <Typography
