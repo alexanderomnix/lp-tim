@@ -9,7 +9,7 @@ import MinhaOfertaCard from "./MinhaOfertaCard";
 import InternetCard from "./InternetCard";
 import AddicionalCard from "./AddicionalCard";
 import LigacoesCard from "./LigacoesCard.js";
-
+import ReactGA from "react-ga";
 import DeezerIco from "../assets/Deezer.png";
 import imageLogoCard from "../assets/socialApps/socialapps.png";
 import FaqComponent from "./faq";
@@ -57,6 +57,12 @@ const useStyles = makeStyles(theme => ({
     padding: "15px 15px 15px"
   }
 }));
+const GAAction = (ctg, act) => {
+  ReactGA.event({
+    category: ctg,
+    action: act
+  });
+};
 
 export default function Pricing() {
   const classes = useStyles();
@@ -176,22 +182,24 @@ export default function Pricing() {
               <img
                 src={PlayStoreIco}
                 alt="Meu tim Play Store link"
-                onClick={() =>
+                onClick={() => {
+                  GAAction("Meu Tim", "Acesso PlayStore");
                   window.open(
                     "https://play.google.com/store/apps/details?id=br.com.timbrasil.meutim"
-                  )
-                }
+                  );
+                }}
               />
             </Grid>
             <Grid item>
               <img
-                onClick={() =>
+                onClick={() => {
+                  GAAction("Meu Tim", "Acesso AppStore");
                   window.open(
                     "https://apps.apple.com/br/app/%CE%BCeu-tim/id668591218"
-                  )
-                }
+                  );
+                }}
                 src={AppStoreIco}
-                alt="Meu tim App Store link"
+                alt="Meu TIM App Store link"
               />
             </Grid>
           </Grid>

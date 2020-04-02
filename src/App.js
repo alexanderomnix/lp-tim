@@ -5,6 +5,15 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import NavBar from "./components/NavBar";
 import MainScreen from "./components/MainScreen";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ReactGA from "react-ga";
+import { createBrowserHistory } from "history";
+
+const history = createBrowserHistory();
+
+history.listen(location => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
 
 const theme = createMuiTheme({
   palette: {
@@ -37,7 +46,7 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <NavBar />
-        <Router>
+        <Router history={history}>
           <Switch>
             <Route exact={true} path="/">
               <SignInScreen />

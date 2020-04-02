@@ -80,15 +80,15 @@ const CardPlano = () => {
       <Typography className={classes.cardsubtitle}>
         <span className={classes.greenspan}>+</span>
       </Typography>{" "}
+      <Typography paragraph className={classes.cardparagraph}>
+        Grátis por 3 meses
+      </Typography>
       <div className={classes.appsrow}>
         <img
           src={Apps_gratis}
           alt="Ícone do aplicativo Telegram, Facebook e Twitter"
         />
       </div>
-      <Typography paragraph className={classes.cardparagraph}>
-        Grátis por 3 meses
-      </Typography>
     </Card>
   );
 };

@@ -14,13 +14,15 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import InputMask from "react-input-mask";
 import { useHistory } from "react-router-dom";
+import Axios from "axios";
 
-const ValidaTelefone = telefone => {
+const ValidaTelefone = async telefone => {
   var regex = new RegExp(
     "^((1[1-9])|([2-9][0-9]))((3[0-9]{3}[0-9]{4})|(9[0-9]{3}[0-9]{5}))$"
   );
   var telefonenumbers = telefone.replace(/[^0-9]/g, "");
   if (regex.test(telefonenumbers)) {
+    // await Axios.post("/", { telefone: telefonenumbers });
     return telefonenumbers;
   } else {
     return false;
@@ -148,11 +150,13 @@ export default function Dashboard() {
                 <form
                   className={classes.form}
                   noValidate
-                  onSubmit={e => {
+                  onSubmit={async e => {
                     e.preventDefault();
                     if (ValidaTelefone(telefone)) {
                       return history.push(
-                        `/plano?${telefone ? ValidaTelefone(telefone) : ""}`
+                        `/plano?${
+                          telefone ? await ValidaTelefone(telefone) : ""
+                        }`
                       );
                     }
                   }}

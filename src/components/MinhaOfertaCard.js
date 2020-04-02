@@ -7,7 +7,7 @@ import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
+//display: block;
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundImage: "linear-gradient(194deg,#016fe9,#0050a7)",
@@ -18,6 +18,7 @@ const useStyles = makeStyles(theme => ({
     height: "371px"
   },
   expand: {
+    fontSize: "3px",
     transform: "rotate(0deg)",
     marginRight: "auto",
     color: "#00FF41",
@@ -51,7 +52,9 @@ const useStyles = makeStyles(theme => ({
   cardparagraph: {
     textAlign: "center",
     color: "#CBECFD",
-    fontSize: "10px",
+    fontSize: "12px",
+    marginTop: "2px",
+    marginBottom: "2px",
     letterSpacing: "-0.3px"
   },
   greenspan: {
@@ -65,7 +68,8 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center"
   },
   actions: {
-    textAlign: "center"
+    textAlign: "center",
+    display: "block"
   },
   expandbar: {
     marginLeft: "auto"
@@ -149,11 +153,17 @@ export default function RecipeReviewCard() {
         </Collapse>
 
         <Typography paragraph className={classes.cardparagraph}>
-          <a className={classes.cardparagraph} href="/">
+          <a
+            className={classes.cardparagraph}
+            href="https://www.tim.com.br/para-voce/planos/controle/sumarios/giga-express-b-promo"
+          >
             Sumário
           </a>{" "}
           e{" "}
-          <a className={classes.cardparagraph} href="/">
+          <a
+            className={classes.cardparagraph}
+            href="https://www.tim.com.br/Portal_Conteudo/_staticfiles/para-voce/planos/controle/assets/pdf/Regulamento%20TIM%20Controle%20GIGA%20B%20Promo%20Express%20-%20Vers%C3%A3o%20Final.pdf"
+          >
             regulamento
           </a>{" "}
           <br />

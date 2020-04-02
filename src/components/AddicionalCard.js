@@ -14,7 +14,10 @@ const useStyles = makeStyles(() => ({
     maxWidth: 204,
     margin: "auto"
   },
-  content: {},
+  content: {
+    margin: "auto",
+    textAlign: "center"
+  },
   cta: {
     margin: "auto",
     marginTop: 24,
@@ -38,7 +41,8 @@ const useStyles = makeStyles(() => ({
     height: "100px",
     alignItems: "center",
     justifyContent: "center",
-    margin: "0 auto!important"
+    margin: "0 auto!important",
+    color: "#f22222"
   },
   overline: {
     textAlign: "center",
@@ -59,7 +63,7 @@ const NewsCard = props => {
       </div>
 
       <CardContent className={styles.content}>
-        <TextInfoContent classes={textCardContentStyles} overline={title} />
+        <TextInfoContent classes={styles.content} heading={title} />
         <Button variant="raised" className={styles.cta}>
           Contratar agora
         </Button>

@@ -8,7 +8,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import BannerLogin from "../assets/bannerlogin.png";
-// import Hidden from "@material-ui/core/Hidden";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 
