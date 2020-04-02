@@ -8,18 +8,8 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import ExpansionDrop from "./expansionDrop";
 import CardModel from "./card";
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="#">
-        Desevolvido por Omnix Digital Experience
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import CardNews from "./cardnews";
+import CardLigacoes from "./cardsligacoes.js";
 
 const useStyles = makeStyles(theme => ({
   InfoContainer: { backgroundColor: "#E0E7F2" },
@@ -35,7 +25,9 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: "linear-gradient(194deg,#016fe9,#0050a7)"
   },
   cardContainer: {
-    justifyContent: "center"
+    marginTop: 30,
+    marginBottom: 30,
+    flexGrow: 1
   },
   footer: {
     borderTop: `1px solid ${theme.palette.divider}`,
@@ -53,7 +45,6 @@ const footers = [];
 
 export default function Pricing() {
   const classes = useStyles();
-  // const [houver, sethouver] = React.useState(null);
 
   return (
     <>
@@ -77,17 +68,52 @@ export default function Pricing() {
           </Typography>
         </Container>
         <Container maxWidth="md" component="main">
-          <Grid container spacing={5} alignItems="flex-end">
-            <Grid item key={1} xs={12} sm={12} md={4}>
+          <Grid container spacing={4}>
+            <Grid item key={1} xs={12} sm={6} md={4}>
               <CardModel />
             </Grid>
-            <Grid item key={2} xs={12} sm={12} md={4}>
+            <Grid item key={2} xs={12} sm={6} md={4}>
               <ExpansionDrop />
             </Grid>
-            <Grid item key={1} xs={12} sm={12} md={4}>
-              <CardModel />
+            <Grid item key={1} xs={12} sm={6} md={4}>
+              <CardLigacoes />
             </Grid>
           </Grid>
+        </Container>
+        <Container
+          maxWidth="sm"
+          component="main"
+          className={classes.heroContent}
+        >
+          <Typography
+            variant="h5"
+            align="center"
+            component="p"
+            color="secondary"
+            className={classes.headertext}
+          >
+            <strong>Ofertas</strong> Para o seu plano tim Controle
+          </Typography>
+          <Container maxWidth="md" component="main">
+            <Grid
+              container
+              spacing={2}
+              direction="row"
+              justify="center"
+              alignItems="center"
+              className={classes.cardContainer}
+            >
+              <Grid item key={1} xs={12} sm={12} md={4}>
+                <CardNews />
+              </Grid>
+              <Grid item key={2} xs={12} sm={12} md={4}>
+                <CardNews />
+              </Grid>
+              <Grid item key={1} xs={12} sm={12} md={4}>
+                <CardNews />
+              </Grid>
+            </Grid>
+          </Container>
         </Container>
       </div>
       <Container maxWidth="md" component="footer" className={classes.footer}>
@@ -109,9 +135,7 @@ export default function Pricing() {
             </Grid>
           ))}
         </Grid>
-        <Box mt={5}>
-          <Copyright />
-        </Box>
+        <Box mt={5}>{/* <Copyright /> */}</Box>
       </Container>
     </>
   );

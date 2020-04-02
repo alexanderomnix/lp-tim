@@ -42,7 +42,7 @@ function App() {
             <Route exact={true} path="/">
               <SignInScreen />
             </Route>
-            <Route exact={true} path="/plano4gbsmart">
+            <Route exact={true} path="/plano">
               <MainScreen />
             </Route>
           </Switch>

@@ -13,8 +13,9 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    maxWidth: 345,
-    backgroundImage: "linear-gradient(194deg,#016fe9,#0050a7)"
+    backgroundImage: "linear-gradient(194deg,#016fe9,#0050a7)",
+    overflow: "initial",
+    borderRadius: "8px"
   },
   expand: {
     transform: "rotate(0deg)",
@@ -28,17 +29,16 @@ const useStyles = makeStyles(theme => ({
     transform: "rotate(180deg)"
   },
   cardtitle: {
-    marginTop: 15,
     color: "#00FF41",
     fontWeight: "700",
     textAlign: "Center",
-    letterSpacing: "-2.5px",
     fontSize: "50px"
   },
   spantitle: {
     fontSize: "17px",
     marginRight: "13px",
-    verticalAlign: "middle"
+    verticalAlign: "middle",
+    letterSpacing: "0.5px"
   },
   cardsubtitle: {
     textAlign: "center",
@@ -58,62 +58,79 @@ const useStyles = makeStyles(theme => ({
     fontSize: "17px",
     fontWeight: "bold",
     color: "#fff",
-    textAlign: "center"
+    display: "fixed"
   },
   actions: {
-    display: "flex"
+    display: "fixed"
   },
   expandbar: {
     marginLeft: "auto"
+  },
+  rectangle: {
+    margin: "-5% 12px 0",
+    position: "sticker",
+    color: "#01508c",
+    top: "-25px",
+    background: "#00FF41 0% 0% no-repeat padding-box",
+    fontWeight: "700",
+    borderRadius: "8px",
+    textAlign: "center",
+    opacity: 1,
+    padding: "8px 8px 8px",
+    width: "157px",
+    height: "38px"
+  },
+  appsrow: {
+    display: "flex",
+    flexFlow: "row",
+    alignItems: "center",
+    justifyContent: "center"
   }
 }));
 
 export default function RecipeReviewCard() {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = React.useState(true);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   return (
-    <Card className={classes.root}>
-      <Typography>
+    <>
+      <Card className={classes.root} elevation={0}>
+        <div className={classes.appsrow}>
+          <div className={classes.rectangle}>#MinhaOferta</div>
+        </div>
         <p className={classes.cardtitle}>
           <span className={classes.spantitle}>até</span>
           <strong>9GB</strong>
         </p>
-      </Typography>
-      <Typography className={classes.cardsubtitle}>
-        4GB <span className={classes.greenspan}>+</span> Até 5GB de bônus
-      </Typography>
-      <CardContent>
-        <Typography
-          variant="body2"
-          color="textSecondary"
-          component="p"
-        ></Typography>
-      </CardContent>
-      <CardActions className={classes.actions}>
-        <Typography
-          className={classes.collapsebar}
-          aria-label="Mais benefícios"
-        >
-          Mais benefícios
+        <Typography className={classes.cardsubtitle}>
+          4GB <span className={classes.greenspan}>+</span> Até 5GB de bônus
         </Typography>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="Mais benefícios"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
+          <Typography variant="body2" color="textSecondary"></Typography>
+        </CardContent>
+        <CardActions className={classes.actions}>
+          <Typography
+            className={classes.collapsebar}
+            aria-label="Mais benefícios"
+          >
+            Mais benefícios
+          </Typography>
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="Mais benefícios"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto">
           <Typography paragraph className={classes.cardparagraph}>
             - TIM Banca Light
           </Typography>
@@ -123,8 +140,20 @@ export default function RecipeReviewCard() {
           <Typography paragraph className={classes.cardparagraph}>
             - TIM Segurança Digital
           </Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
+        </Collapse>
+
+        <Typography paragraph className={classes.cardparagraph}>
+          <a className={classes.cardparagraph} href="/">
+            Sumário
+          </a>{" "}
+          e{" "}
+          <a className={classes.cardparagraph} href="/">
+            regulamento
+          </a>{" "}
+          <br />
+          da oferta Controle
+        </Typography>
+      </Card>
+    </>
   );
 }
