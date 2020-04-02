@@ -1,6 +1,5 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -57,7 +56,7 @@ export default function Pricing() {
             <Link
               variant="button"
               color="textPrimary"
-              href="#"
+              href="https://meutim.tim.com.br/menu/servicos-de-conta/conta-online"
               className={classes.link}
             >
               2ªVia
@@ -65,7 +64,7 @@ export default function Pricing() {
             <Link
               variant="button"
               color="textPrimary"
-              href="#"
+              href="https://www.tim.com.br/sp/para-voce/cobertura-e-roaming/mapa-de-cobertura"
               className={classes.link}
             >
               Cobertura

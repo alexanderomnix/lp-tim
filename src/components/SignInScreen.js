@@ -14,7 +14,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import InputMask from "react-input-mask";
 import { useHistory } from "react-router-dom";
-import Axios from "axios";
+// import Axios from "axios";
 
 const ValidaTelefone = async telefone => {
   var regex = new RegExp(

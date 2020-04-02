@@ -5,7 +5,6 @@ import { Card } from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import TextInfoContent from "./TextInfoContent";
-import { useN01TextInfoContentStyles } from "@mui-treasury/styles/textInfoContent/n01";
 import { useBouncyShadowStyles } from "@mui-treasury/styles/shadow/bouncy";
 import ReactGA from "react-ga";
 
