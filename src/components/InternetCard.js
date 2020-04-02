@@ -74,7 +74,6 @@ const CardPlano = () => {
         <img
           src={AppsRow}
           alt="Ícone do aplicativo WhatsApp, messenger, Telegram e Waze"
-          title="WhatsApp"
         />
         &nbsp;
       </div>
@@ -85,7 +84,6 @@ const CardPlano = () => {
         <img
           src={Apps_gratis}
           alt="Ícone do aplicativo Telegram, Facebook e Twitter"
-          title="WhatsApp"
         />
       </div>
       <Typography paragraph className={classes.cardparagraph}>

@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
   cardparagraph: {
     textAlign: "center",
     color: "#CBECFD",
-    fontSize: "15px",
+    fontSize: "10px",
     letterSpacing: "-0.3px"
   },
   greenspan: {
