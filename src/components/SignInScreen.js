@@ -13,12 +13,13 @@ import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import InputMask from "react-input-mask";
+import { useHistory } from "react-router-dom";
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     background:
       "linear-gradient(153deg, rgba(32,97,127,1) 0%, rgba(103,166,184,1) 100%)",
-    // backgroundImage: `url(${Bg})`,
     backgroundAttachment: "fixed",
     backgroundSize: "cover",
     backgroundPosition: "center center",
@@ -34,9 +35,7 @@ const useStyles = makeStyles(theme => ({
     resize: "both",
     backgroundSize: "contain",
     alignContent: "center",
-    backgroundImage: `url("${BannerLogin}")`,
-    overflow: "auto",
-    opacity: 1
+    backgroundImage: `url("${BannerLogin}")`
   },
   menuButton: {
     marginRight: 36
@@ -96,6 +95,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function Dashboard() {
   const classes = useStyles();
+  const [telefone, setTelefone] = React.useState();
+  let history = useHistory();
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -132,10 +133,24 @@ export default function Dashboard() {
                   </strong>
                 </Typography>
 
-                <form className={classes.form} noValidate>
+                <form
+                  className={classes.form}
+                  noValidate
+                  onSubmit={e => {
+                    e.preventDefault();
+                    return history.push(
+                      `/plano?${
+                        telefone ? telefone.replace(/[^0-9]/g, "") : ""
+                      }`
+                    );
+                  }}
+                >
                   <Grid container spacing={2}>
                     <Grid item xs={12} sm={6}>
                       <InputMask
+                        onChange={event => {
+                          setTelefone(event.target.value);
+                        }}
                         mask="(99) 99999-9999"
                         className={classes.inputmask}
                       >

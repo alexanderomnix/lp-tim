@@ -13,7 +13,6 @@ const useStyles = makeStyles(theme => ({
     borderRadius: "8px",
     top: "360px",
     left: "798px",
-    width: "289px",
     height: "371px"
   },
   cardtitle: {

@@ -2,9 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
-import AppsRow from "../assets/socialApps/Appsrow.svg";
-import Apps_gratis from "../assets/socialApps/Apps_gratis_3meses.png";
-import ConversationIco from "../assets/Group_964.svg";
+import ConversationIco from "../assets/icn_chat.svg";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,7 +12,6 @@ const useStyles = makeStyles(theme => ({
     borderRadius: "8px",
     top: "360px",
     left: "798px",
-    width: "289px",
     height: "371px"
   },
   cardtitle: {

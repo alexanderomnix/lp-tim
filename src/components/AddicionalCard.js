@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "clsx";
 import { makeStyles } from "@material-ui/styles";
-import { Card, CardHeader } from "@material-ui/core";
+import { Card } from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import TextInfoContent from "./TextInfoContent";
@@ -16,6 +16,7 @@ const useStyles = makeStyles(() => ({
   },
   content: {},
   cta: {
+    margin: "auto",
     marginTop: 24,
     textTransform: "initial",
     color: "#fff",
