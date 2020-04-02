@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   toolbarTitle: {
     flexGrow: 1,
     marginLeft: 20,
-    fontSize: "16px",
+    fontSize: "14px",
     padding: 10,
     alignItems: "center"
   },

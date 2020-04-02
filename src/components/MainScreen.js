@@ -100,7 +100,7 @@ export default function Pricing() {
             <Grid item key={2} xs={12} sm={6} md={4}>
               <MinhaOfertaCard />
             </Grid>
-            <Grid item key={1} xs={12} sm={6} md={4}>
+            <Grid item key={3} xs={12} sm={6} md={4}>
               <LigacoesCard />
             </Grid>
           </Grid>
@@ -142,7 +142,7 @@ export default function Pricing() {
                   url="https://wcad.tim.com.br/"
                 />
               </Grid>
-              <Grid item key={1} xs={12} sm={12} md={4}>
+              <Grid item key={3} xs={12} sm={12} md={4}>
                 <AddicionalCard
                   logo={DeezerIco}
                   title="TIM Music by Deezer"
@@ -242,7 +242,6 @@ export default function Pricing() {
                 color="primary"
                 onClick={() => setFeedbackButton(true)}
                 disabled={feedbackButton}
-                on
                 aria-label="Deslike"
               >
                 <ThumbDownAltIcon

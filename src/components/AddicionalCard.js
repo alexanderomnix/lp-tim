@@ -70,7 +70,7 @@ const NewsCard = props => {
       <CardContent className={styles.content}>
         <TextInfoContent classes={styles.content} heading={title} />
         <Button
-          variant="raised"
+          variant="text"
           className={styles.cta}
           onClick={() => {
             GAAction("Adquirir", title);
