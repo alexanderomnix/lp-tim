@@ -132,16 +132,22 @@ export default function Pricing() {
                 <AddicionalCard
                   logo={imageLogoCard}
                   title="Redes sociais Recorrente"
+                  url="https://wcad.tim.com.br/"
                 />
               </Grid>
               <Grid item key={2} xs={12} sm={12} md={4}>
                 <AddicionalCard
                   logo={imageLogoCard}
                   title="Redes Sociais Avulso"
+                  url="https://wcad.tim.com.br/"
                 />
               </Grid>
               <Grid item key={1} xs={12} sm={12} md={4}>
-                <AddicionalCard logo={DeezerIco} title="TIM Music by Deezer" />
+                <AddicionalCard
+                  logo={DeezerIco}
+                  title="TIM Music by Deezer"
+                  url="http://bit.ly/2G2eHOa"
+                />
               </Grid>
             </Grid>
           </Container>

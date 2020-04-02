@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import TextInfoContent from "./TextInfoContent";
 import { useN01TextInfoContentStyles } from "@mui-treasury/styles/textInfoContent/n01";
 import { useBouncyShadowStyles } from "@mui-treasury/styles/shadow/bouncy";
+import ReactGA from "react-ga";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -49,11 +50,16 @@ const useStyles = makeStyles(() => ({
     color: "#fff"
   }
 }));
+const GAAction = (ctg, act) => {
+  ReactGA.event({
+    category: ctg,
+    action: act
+  });
+};
 
 const NewsCard = props => {
-  const { logo, title } = props;
+  const { logo, title, url } = props;
   const styles = useStyles();
-  const textCardContentStyles = useN01TextInfoContentStyles();
   const shadowStyles = useBouncyShadowStyles();
 
   return (
@@ -64,7 +70,14 @@ const NewsCard = props => {
 
       <CardContent className={styles.content}>
         <TextInfoContent classes={styles.content} heading={title} />
-        <Button variant="raised" className={styles.cta}>
+        <Button
+          variant="raised"
+          className={styles.cta}
+          onClick={() => {
+            GAAction("Adquirir", title);
+            window.open(url);
+          }}
+        >
           Contratar agora
         </Button>
       </CardContent>

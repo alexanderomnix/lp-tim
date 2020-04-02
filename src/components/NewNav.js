@@ -20,15 +20,11 @@ const useStyles = makeStyles(theme => ({
     borderBottom: `1px solid ${theme.palette.divider}`
   },
   toolbar: {
-    flexWrap: "wrap",
-    padding: 10
+    flexWrap: "wrap"
   },
   toolbarTitle: {
     flexGrow: 1,
-    marginLeft: 20,
-    fontSize: "16px",
-    padding: 10,
-    alignItems: "center"
+    fontSize: "10px"
   },
   link: {
     margin: theme.spacing(1, 1.5),
@@ -71,8 +67,61 @@ export default function Pricing() {
               Cobertura
             </Link>
           </nav>
+          <Button
+            href="#"
+            color="primary"
+            variant="outlined"
+            className={classes.link}
+          >
+            Login
+          </Button>
         </Toolbar>
       </AppBar>
     </React.Fragment>
+  );
+}
+
+import React from "react";
+import Logo from "../assets/logo.png";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
+import { makeStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles(theme => ({
+  NavTitle: {
+    color: "#fff"
+  },
+  appBar: {
+    borderBottom: `1px solid ${theme.palette.divider}`
+  },
+  toolbarTitle: {
+    flexGrow: 1,
+    marginLeft: 20,
+    fontSize: "0.8rem",
+    fontWeight: "bold"
+  }
+}));
+
+export default function NavBar() {
+  const classes = useStyles();
+
+  return (
+    <div>
+      <AppBar elevation={0} className={classes.appBar} position="static">
+        <Toolbar>
+          <img src={Logo} alt={"logo TIM"} style={{ maxWidth: "5.25rem" }} />
+          <Typography
+            component="h1"
+            variant="h6"
+            color="inherit"
+            noWrap
+            className={classes.toolbarTitle}
+          >
+            EVOLUIR É FAZER DIFERENTE!
+          </Typography>
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 }
