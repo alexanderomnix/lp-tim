@@ -15,6 +15,18 @@ import SearchIcon from "@material-ui/icons/Search";
 import InputMask from "react-input-mask";
 import { useHistory } from "react-router-dom";
 
+const ValidaTelefone = telefone => {
+  var regex = new RegExp(
+    "^((1[1-9])|([2-9][0-9]))((3[0-9]{3}[0-9]{4})|(9[0-9]{3}[0-9]{5}))$"
+  );
+  var telefonenumbers = telefone.replace(/[^0-9]/g, "");
+  if (regex.test(telefonenumbers)) {
+    return telefonenumbers;
+  } else {
+    return false;
+  }
+};
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
@@ -138,11 +150,11 @@ export default function Dashboard() {
                   noValidate
                   onSubmit={e => {
                     e.preventDefault();
-                    return history.push(
-                      `/plano?${
-                        telefone ? telefone.replace(/[^0-9]/g, "") : ""
-                      }`
-                    );
+                    if (ValidaTelefone(telefone)) {
+                      return history.push(
+                        `/plano?${telefone ? ValidaTelefone(telefone) : ""}`
+                      );
+                    }
                   }}
                 >
                   <Grid container spacing={2}>
