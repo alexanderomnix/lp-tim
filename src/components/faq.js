@@ -15,7 +15,8 @@ const useStyles = makeStyles(theme => ({
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular
+    fontWeight: theme.typography.fontWeightRegular,
+    alignSelf: "center"
   },
   expandIcon: {
     color: "#2d7fe1"

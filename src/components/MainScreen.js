@@ -148,7 +148,6 @@ export default function Pricing() {
                 <AddicionalCard
                   logo={DeezerIco}
                   title="TIM Music by Deezer"
-                  subtitle="Recorrente"
                   url="http://bit.ly/2G2eHOa"
                 />
               </Grid>
