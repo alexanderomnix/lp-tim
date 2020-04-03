@@ -11,15 +11,23 @@ const useStyles = makeStyles(theme => ({
     width: "100%"
   },
   panel: {
-    backgroundColor: "#f4f4f4"
+    backgroundColor: "#f4f4f4",
+    textAlign: "center",
+    margin: "auto"
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
-    alignSelf: "center"
+    alignSelf: "center",
+    margin: "auto"
   },
   expandIcon: {
     color: "#2d7fe1"
+  },
+  align: {
+    display: "block",
+    textAlign: "center!important",
+    margin: "auto"
   }
 }));
 
@@ -38,7 +46,7 @@ export default function SimpleExpansionPanel() {
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography align="justify">
+          <Typography className={classes.align}>
             <Link
               color="inherit"
               variant="body2"
