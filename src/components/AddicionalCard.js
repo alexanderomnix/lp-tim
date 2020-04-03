@@ -16,7 +16,8 @@ const useStyles = makeStyles(() => ({
   },
   content: {
     margin: "auto",
-    textAlign: "center"
+    textAlign: "center",
+    color: "#01508C"
   },
   cta: {
     margin: "auto",
@@ -57,7 +58,7 @@ const GAAction = (ctg, act) => {
 };
 
 const NewsCard = props => {
-  const { logo, title, url } = props;
+  const { logo, title, url, subtitle } = props;
   const styles = useStyles();
   const shadowStyles = useBouncyShadowStyles();
 
@@ -68,7 +69,11 @@ const NewsCard = props => {
       </div>
 
       <CardContent className={styles.content}>
-        <TextInfoContent classes={styles.content} heading={title} />
+        <TextInfoContent
+          classes={styles.content}
+          heading={title}
+          body={subtitle}
+        />
         <Button
           variant="text"
           className={styles.cta}

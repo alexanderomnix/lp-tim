@@ -45,13 +45,14 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <NavBar />
         <Router history={history}>
           <Switch>
             <Route exact={true} path="/">
+              <NavBar subtitle={true} />
               <SignInScreen />
             </Route>
             <Route exact={true} path="/plano">
+              <NavBar subtitle={false} />
               <MainScreen />
             </Route>
           </Switch>

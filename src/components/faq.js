@@ -33,7 +33,7 @@ export default function SimpleExpansionPanel() {
           aria-controls="panel1a-content"
         >
           <Typography className={classes.heading}>
-            Rugulamentos e sumários da oferta TIM Controle
+            Regulamentos e sumários da oferta TIM Controle
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>

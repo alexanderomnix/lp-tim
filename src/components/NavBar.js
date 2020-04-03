@@ -1,6 +1,5 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
@@ -35,12 +34,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Pricing() {
+const NavBar = props => {
   const classes = useStyles();
-
+  const { subtitle } = props;
   return (
-    <React.Fragment>
-      <CssBaseline />
+    <>
       <AppBar position="static" elevation={0} className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           <img src={Logo} alt={"logo TIM"} style={{ maxWidth: "5.25rem" }} />
@@ -52,26 +50,31 @@ export default function Pricing() {
           >
             EVOLUIR É FAZER DIFERENTE!
           </Typography>
-          <nav>
-            <Link
-              variant="button"
-              color="textPrimary"
-              href="https://meutim.tim.com.br/menu/servicos-de-conta/conta-online"
-              className={classes.link}
-            >
-              2ªVia
-            </Link>
-            <Link
-              variant="button"
-              color="textPrimary"
-              href="https://www.tim.com.br/sp/para-voce/cobertura-e-roaming/mapa-de-cobertura"
-              className={classes.link}
-            >
-              Cobertura
-            </Link>
-          </nav>
+          {subtitle ? (
+            ""
+          ) : (
+            <nav>
+              <Link
+                variant="button"
+                color="textPrimary"
+                href="https://meutim.tim.com.br/menu/servicos-de-conta/conta-online"
+                className={classes.link}
+              >
+                2ªVia
+              </Link>
+              <Link
+                variant="button"
+                color="textPrimary"
+                href="https://www.tim.com.br/sp/para-voce/cobertura-e-roaming/mapa-de-cobertura"
+                className={classes.link}
+              >
+                Cobertura
+              </Link>
+            </nav>
+          )}
         </Toolbar>
       </AppBar>
-    </React.Fragment>
+    </>
   );
-}
+};
+export default NavBar;
