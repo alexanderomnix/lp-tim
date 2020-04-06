@@ -178,10 +178,10 @@ export default function Pricing() {
             </Grid>
           </Grid>
           <Typography color="textSecondary" align="center">
-            Acompanhe seu consumo de internet, consulte suas faturas, contrate
-            pacotes adicionais de internet
-            <br /> e gerencie o seu plano, tudo na palma de sua mão! Baixe já o
-            APP.
+            Acompanhe seu consumo, consulte suas faturas, contrate pacotes
+            adicionais e muito mais! <br />
+            Tudo isso na palma da sua mão e sem gastar sua franquia de internet!
+            Baixe já o APP.
           </Typography>
           <Grid
             container

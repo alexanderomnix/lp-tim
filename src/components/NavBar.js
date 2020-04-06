@@ -6,6 +6,7 @@ import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Logo from "../assets/logo.png";
 import ReactGA from "react-ga";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
 const useStyles = makeStyles((theme) => ({
   "@global": {
@@ -72,7 +73,7 @@ const NavBar = (props) => {
                   className={classes.link}
                 >
                   {" "}
-                  2ªVia{" "}
+                  > 2ª Via de Conta{" "}
                 </Link>{" "}
                 <Link
                   variant="button"
@@ -86,7 +87,7 @@ const NavBar = (props) => {
                   className={classes.link}
                 >
                   {" "}
-                  Cobertura{" "}
+                  > Mapa de Cobertura{" "}
                 </Link>{" "}
               </Grid>
             )}
