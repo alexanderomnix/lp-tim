@@ -1,77 +1,96 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+import { Grid } from "@material-ui/core";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Logo from "../assets/logo.png";
+import ReactGA from "react-ga";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   "@global": {
     ul: {
       margin: 0,
       padding: 0,
-      listStyle: "none"
-    }
+      listStyle: "none",
+    },
   },
   appBar: {
-    borderBottom: `1px solid ${theme.palette.divider}`
-  },
-  toolbar: {
-    flexWrap: "wrap",
-    padding: 10
+    borderBottom: `1px solid ${theme.palette.divider}`,
   },
   toolbarTitle: {
     flexGrow: 1,
     marginLeft: 20,
     fontSize: "14px",
     padding: 10,
-    alignItems: "center"
+    alignItems: "center",
   },
   link: {
     margin: theme.spacing(1, 1.5),
-    color: "#fff"
-  }
+    color: "#fff",
+  },
+  topnavRight: {
+    float: "right",
+  },
 }));
 
-const NavBar = props => {
+const NavBar = (props) => {
   const classes = useStyles();
   const { subtitle } = props;
+  const GAAction = (ctg, act) => {
+    ReactGA.event({
+      category: ctg,
+      action: act,
+    });
+  };
+
   return (
     <>
       <AppBar position="static" elevation={0} className={classes.appBar}>
-        <Toolbar className={classes.toolbar}>
-          <img src={Logo} alt={"logo TIM"} style={{ maxWidth: "5.25rem" }} />
-          <Typography
-            variant="h6"
-            color="inherit"
-            noWrap
-            className={classes.toolbarTitle}
-          >
-            EVOLUIR É FAZER DIFERENTE!
-          </Typography>
-          {subtitle ? (
-            ""
-          ) : (
-            <nav>
-              <Link
-                variant="button"
-                color="textPrimary"
-                href="https://meutim.tim.com.br/menu/servicos-de-conta/conta-online"
-                className={classes.link}
-              >
-                2ªVia
-              </Link>
-              <Link
-                variant="button"
-                color="textPrimary"
-                href="https://www.tim.com.br/sp/para-voce/cobertura-e-roaming/mapa-de-cobertura"
-                className={classes.link}
-              >
-                Cobertura
-              </Link>
-            </nav>
-          )}
+        <Toolbar>
+          <Grid justify="space-between" container spacing={24}>
+            <Grid item>
+              <img
+                src={Logo}
+                alt={"logo TIM"}
+                style={{ maxWidth: "5.25rem" }}
+              />
+            </Grid>
+            {subtitle ? (
+              ""
+            ) : (
+              <Grid item>
+                <Link
+                  variant="button"
+                  color="textPrimary"
+                  onClick={() => {
+                    GAAction("2via", "Acesso2via");
+                    window.open(
+                      "https://meutim.tim.com.br/menu/servicos-de-conta/conta-online"
+                    );
+                  }}
+                  className={classes.link}
+                >
+                  {" "}
+                  2ªVia{" "}
+                </Link>{" "}
+                <Link
+                  variant="button"
+                  color="textPrimary"
+                  onClick={() => {
+                    GAAction("Cobertura", "AcessoCobertura");
+                    window.open(
+                      "https://www.tim.com.br/sp/para-voce/cobertura-e-roaming/mapa-de-cobertura"
+                    );
+                  }}
+                  className={classes.link}
+                >
+                  {" "}
+                  Cobertura{" "}
+                </Link>{" "}
+              </Grid>
+            )}
+          </Grid>
         </Toolbar>
       </AppBar>
     </>

@@ -12,7 +12,7 @@ import LigacoesCard from "./LigacoesCard.js";
 import ReactGA from "react-ga";
 import DeezerIco from "../assets/Deezer.png";
 import imageLogoCard from "../assets/socialApps/socialapps.png";
-import FaqComponent from "./faq";
+// import FaqComponent from "./faq";
 import APPMeuTim from "../assets/APPMeuTim.svg";
 import AppStoreIco from "../assets/appstore.png";
 import PlayStoreIco from "../assets/playstore.png";
@@ -20,23 +20,23 @@ import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
 import Fab from "@material-ui/core/Fab";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   InfoContainer: { backgroundColor: "#E0E7F2" },
   headertext: {
     letterSpacing: "-0.64px",
     textAlign: "center",
-    textColor: "#00FF41"
+    textColor: "#00FF41",
   },
   heroContent: {
-    padding: theme.spacing(15, 0, 6)
+    padding: theme.spacing(10, 0, 4),
   },
   CardBody: {
-    backgroundImage: "linear-gradient(194deg,#016fe9,#0050a7)"
+    backgroundImage: "linear-gradient(194deg,#016fe9,#0050a7)",
   },
   cardContainer: {
     marginTop: 30,
     marginBottom: 30,
-    flexGrow: 1
+    flexGrow: 1,
   },
   AppTIMtitle: {
     padding: 10,
@@ -44,26 +44,26 @@ const useStyles = makeStyles(theme => ({
     fontWeight: "bold",
     color: "#044491",
     textAlign: "center",
-    textColor: "#00FF41"
+    textColor: "#00FF41",
   },
   footer: {
     // borderTop: `1px solid ${theme.palette.divider}`,
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(2),
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
     [theme.breakpoints.up("sm")]: {
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(6)
-    }
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(6),
+    },
   },
   footerrow: {
-    padding: "15px 15px 15px"
-  }
+    padding: "15px 15px 15px",
+  },
 }));
 const GAAction = (ctg, act) => {
   ReactGA.event({
     category: ctg,
-    action: act
+    action: act,
   });
 };
 
@@ -156,16 +156,17 @@ export default function Pricing() {
         </Container>
       </div>
       <Container maxWidth="md" className={classes.footer}>
-        <Grid container spacing={4} justify="space-evenly">
+        {/* <Grid container spacing={4} justify="space-evenly">
           <FaqComponent />
-        </Grid>
-        <Box mt={5}>
+        </Grid> */}
+        <Box mt={4}>
           <Grid
             container
             className={classes.footerrow}
             direction="row"
             justify="center"
             alignItems="center"
+            spacing={2}
           >
             <Grid item>
               <img src={APPMeuTim} alt="Ney tim" />
@@ -177,10 +178,10 @@ export default function Pricing() {
             </Grid>
           </Grid>
           <Typography color="textSecondary" align="center">
-            Nunca foi tão fácil acompanhar o seu consumo de internet, baixar
-            faturas,
-            <br /> saber os valores do seu plano e aproveitar todos os seus
-            serviços TIM. Baixe agora!
+            Acompanhe seu consumo de internet, consulte suas faturas, contrate
+            pacotes adicionais de internet
+            <br /> e gerencie o seu plano, tudo na palma de sua mão! Baixe já o
+            APP.
           </Typography>
           <Grid
             container

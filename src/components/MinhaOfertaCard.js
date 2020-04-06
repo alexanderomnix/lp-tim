@@ -1,21 +1,23 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
-import Card from "@material-ui/core/Card";
+import { Card, Link } from "@material-ui/core";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ReactGA from "react-ga";
+
 //display: block;
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     backgroundImage: "linear-gradient(194deg,#016fe9,#0050a7)",
     overflow: "initial",
     borderRadius: "8px",
     top: "360px",
     left: "798px",
-    height: "371px"
+    height: "371px",
   },
   expand: {
     fontSize: "3px",
@@ -23,11 +25,11 @@ const useStyles = makeStyles(theme => ({
     marginRight: "auto",
     color: "#00FF41",
     transition: theme.transitions.create("transform", {
-      duration: theme.transitions.duration.shortest
-    })
+      duration: theme.transitions.duration.shortest,
+    }),
   },
   expandOpen: {
-    transform: "rotate(180deg)"
+    transform: "rotate(180deg)",
   },
   cardtitle: {
     color: "#00FF41",
@@ -35,19 +37,19 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     fontSize: "58px",
     letterSpacing: "-1.62px",
-    margin: "0!important"
+    margin: "0!important",
   },
   spantitle: {
     fontSize: "17px",
     marginRight: "13px",
     verticalAlign: "middle",
     letterSpacing: "0.5px",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   cardsubtitle: {
     textAlign: "center",
     color: "#fff",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   cardparagraph: {
     textAlign: "center",
@@ -55,24 +57,24 @@ const useStyles = makeStyles(theme => ({
     fontSize: "12px",
     marginTop: "2px",
     marginBottom: "2px",
-    letterSpacing: "-0.3px"
+    letterSpacing: "-0.3px",
   },
   greenspan: {
     color: "#00ff41",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   collapsebar: {
     fontSize: "17px",
     fontWeight: "bold",
     color: "#fff",
-    textAlign: "center"
+    textAlign: "center",
   },
   actions: {
     textAlign: "center",
-    display: "block"
+    display: "block",
   },
   expandbar: {
-    marginLeft: "auto"
+    marginLeft: "auto",
   },
   rectangle: {
     margin: "-5% 12px 0",
@@ -90,23 +92,29 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexFlow: "row",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   appsrow: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   disclaimer: {
     fontSize: "14px",
-    fontWeight: "300"
-  }
+    fontWeight: "300",
+  },
 }));
 
 export default function RecipeReviewCard() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
+  const GAAction = (ctg, act) => {
+    ReactGA.event({
+      category: ctg,
+      action: act,
+    });
+  };
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -119,13 +127,13 @@ export default function RecipeReviewCard() {
         </div>
 
         <p className={classes.cardtitle}>
-          <span className={classes.spantitle}>até</span>
-          <strong>5.5GB</strong>
+          {/* <span className={classes.spantitle}>até</span> */}
+          <strong>4GB</strong>
         </p>
 
         <Typography className={classes.cardsubtitle}>
           4GB <span className={classes.greenspan}>+</span> Até 1.5GB de bônus
-          <br />{" "}
+          <br />
           <span className={classes.disclaimer}>
             *contratando débito automático
             <br /> e conta online
@@ -140,7 +148,7 @@ export default function RecipeReviewCard() {
           </Typography>
           <IconButton
             className={clsx(classes.expand, {
-              [classes.expandOpen]: expanded
+              [classes.expandOpen]: expanded,
             })}
             onClick={handleExpandClick}
             aria-expanded={expanded}
@@ -151,30 +159,37 @@ export default function RecipeReviewCard() {
         </CardActions>
         <Collapse in={expanded} timeout="auto">
           <Typography paragraph className={classes.cardparagraph}>
-            - TIM Banca Light
+            - TIM Bancas Jornais
           </Typography>
           <Typography paragraph className={classes.cardparagraph}>
-            - E-Book Light by Skeelo
-          </Typography>
-          <Typography paragraph className={classes.cardparagraph}>
-            - TIM Segurança Digital
+            - TIM Globo Livros
           </Typography>
         </Collapse>
 
         <Typography paragraph className={classes.cardparagraph}>
-          <a
+          <Link
+            onClick={() => {
+              GAAction("Sumário", "AcessoSumário");
+              window.open(
+                "https://www.tim.com.br/sp/para-voce/planos/controle/sumarios/tim-controle-smart"
+              );
+            }}
             className={classes.cardparagraph}
-            href="https://www.tim.com.br/para-voce/planos/controle/sumarios/giga-express-b-promo"
           >
             Sumário
-          </a>{" "}
+          </Link>{" "}
           e{" "}
-          <a
+          <Link
             className={classes.cardparagraph}
-            href="https://www.tim.com.br/Portal_Conteudo/_staticfiles/para-voce/planos/controle/assets/pdf/Regulamento%20TIM%20Controle%20GIGA%20B%20Promo%20Express%20-%20Vers%C3%A3o%20Final.pdf"
+            onClick={() => {
+              GAAction("Regulamento", "AcessoRegulamento");
+              window.open(
+                "https://www.tim.com.br/Portal_Conteudo/_staticfiles/para-voce/planos/Controle/pdf/Regulamentos/31122019/Regulamento_TIM_Controle_Smart_Express201219.pdf"
+              );
+            }}
           >
             regulamento
-          </a>{" "}
+          </Link>{" "}
           <br />
           da oferta Controle
         </Typography>
