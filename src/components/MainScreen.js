@@ -19,6 +19,7 @@ import PlayStoreIco from "../assets/playstore.png";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
 import Fab from "@material-ui/core/Fab";
+import Copyright from "./Copyright";
 
 const useStyles = makeStyles((theme) => ({
   InfoContainer: { backgroundColor: "#E0E7F2" },
@@ -64,6 +65,7 @@ const GAAction = (ctg, act) => {
   ReactGA.event({
     category: ctg,
     action: act,
+    value: 1,
   });
 };
 
@@ -264,6 +266,8 @@ export default function Pricing() {
             </Typography>
           )}
         </Box>
+        <br />
+        <Copyright />
       </Container>
     </>
   );

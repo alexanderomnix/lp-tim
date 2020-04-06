@@ -16,7 +16,7 @@ import InputMask from "react-input-mask";
 import { useHistory } from "react-router-dom";
 // import Axios from "axios";
 
-const ValidaTelefone = async telefone => {
+const ValidaTelefone = async (telefone) => {
   var regex = new RegExp(
     "^((1[1-9])|([2-9][0-9]))((3[0-9]{3}[0-9]{4})|(9[0-9]{3}[0-9]{5}))$"
   );
@@ -29,7 +29,7 @@ const ValidaTelefone = async telefone => {
   }
 };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     background:
@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: "cover",
     backgroundPosition: "center center",
     height: "100%",
-    width: "100%"
+    width: "100%",
   },
   banner: {
     bottom: 0,
@@ -49,45 +49,45 @@ const useStyles = makeStyles(theme => ({
     resize: "both",
     backgroundSize: "contain",
     alignContent: "center",
-    backgroundImage: `url("${BannerLogin}")`
+    backgroundImage: `url("${BannerLogin}")`,
   },
   menuButton: {
-    marginRight: 36
+    marginRight: 36,
   },
   menuButtonHidden: {
-    display: "none"
+    display: "none",
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
     height: "100vh",
-    overflow: "auto"
+    overflow: "auto",
   },
   container: {
     paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4)
+    paddingBottom: theme.spacing(4),
   },
   paper: {
     padding: theme.spacing(1),
     display: "flex",
     overflow: "auto",
-    flexDirection: "column"
+    flexDirection: "column",
   },
   wrapper: {
     margin: "0 auto",
-    width: "100%"
+    width: "100%",
   },
   fixedHeight: {
-    height: 500
+    height: 500,
   },
   Title: {
     marginBottom: 12,
     color: "#00FF41!important",
-    width: "80%"
+    width: "80%",
   },
   Subtitle: {
     marginBottom: 30,
-    color: "#fff"
+    color: "#fff",
   },
   submit: {
     marginTop: "20px",
@@ -96,15 +96,15 @@ const useStyles = makeStyles(theme => ({
     height: "48px",
     color: "#0058c5",
     fontWeight: "600",
-    textAlign: "center"
+    textAlign: "center",
   },
   InputField: {
     borderWidth: "1px",
     borderColor: "white !important",
     color: "white",
-    textAlign: "center"
+    textAlign: "center",
   },
-  inputmask: { textAlign: "center" }
+  inputmask: { textAlign: "center" },
 }));
 
 export default function Dashboard() {
@@ -150,13 +150,11 @@ export default function Dashboard() {
                 <form
                   className={classes.form}
                   noValidate
-                  onSubmit={async e => {
+                  onSubmit={async (e) => {
                     e.preventDefault();
                     if (ValidaTelefone(telefone)) {
                       return history.push(
-                        `/plano?${
-                          telefone ? await ValidaTelefone(telefone) : ""
-                        }`
+                        `/plano?${telefone ? btoa(Math.random() * 5) : ""}`
                       );
                     }
                   }}
@@ -164,7 +162,7 @@ export default function Dashboard() {
                   <Grid container spacing={2}>
                     <Grid item xs={12} sm={6}>
                       <InputMask
-                        onChange={event => {
+                        onChange={(event) => {
                           setTelefone(event.target.value);
                         }}
                         mask="(99) 99999-9999"
@@ -181,13 +179,13 @@ export default function Dashboard() {
                             InputProps={{
                               className: classes.InputField,
                               classes: {
-                                notchedOutline: classes.InputField
+                                notchedOutline: classes.InputField,
                               },
                               endAdornment: (
                                 <InputAdornment position="start">
                                   <SearchIcon fontSize="large" />
                                 </InputAdornment>
-                              )
+                              ),
                             }}
                           />
                         )}

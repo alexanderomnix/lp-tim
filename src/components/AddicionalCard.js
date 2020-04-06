@@ -12,12 +12,12 @@ const useStyles = makeStyles(() => ({
   root: {
     backgroundColor: "transparent",
     maxWidth: 204,
-    margin: "auto"
+    margin: "auto",
   },
   content: {
     margin: "auto",
     textAlign: "center",
-    color: "#01508C"
+    color: "#01508C",
   },
   cta: {
     margin: "auto",
@@ -26,15 +26,15 @@ const useStyles = makeStyles(() => ({
     color: "#fff",
     backgroundColor: "#0161CB",
     "&:hover": {
-      backgroundColor: "#0050A7"
+      backgroundColor: "#0050A7",
     },
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   marginAutoContainer: {
     width: 500,
     height: 80,
     display: "flex",
-    backgroundColor: "gold"
+    backgroundColor: "gold",
   },
   marginAutoItem: {},
   alignItemsAndJustifyContent: {
@@ -43,21 +43,22 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     justifyContent: "center",
     margin: "0 auto!important",
-    color: "#f22222"
+    color: "#f22222",
   },
   overline: {
     textAlign: "center",
-    color: "#fff"
-  }
+    color: "#fff",
+  },
 }));
 const GAAction = (ctg, act) => {
   ReactGA.event({
     category: ctg,
-    action: act
+    action: act,
+    value: 1,
   });
 };
 
-const NewsCard = props => {
+const NewsCard = (props) => {
   const { logo, title, url, subtitle } = props;
   const styles = useStyles();
   const shadowStyles = useBouncyShadowStyles();

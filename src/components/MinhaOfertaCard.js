@@ -113,6 +113,7 @@ export default function RecipeReviewCard() {
     ReactGA.event({
       category: ctg,
       action: act,
+      value: 1,
     });
   };
   const handleExpandClick = () => {
